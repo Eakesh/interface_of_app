@@ -75,23 +75,28 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          header(),
-          words(),
-          SizedBox(height: 30),
-          months(),
-          or(),
-          monthyear(),
-          almostbutton(),
-        ],
-      ),
-    );
+        body: ListView(
+      children: [
+        Container(
+          child: Column(
+            children: [
+              header(),
+              words(),
+              SizedBox(height: 30),
+              months(),
+              or(),
+              monthyear(),
+              almostbutton(),
+            ],
+          ),
+        ),
+      ],
+    ));
   }
 
   Widget header() {
     return Padding(
-      padding: const EdgeInsets.only(top: 40),
+      padding: const EdgeInsets.only(top: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -102,15 +107,22 @@ class _HomepageState extends State<Homepage> {
               color: Colors.amber,
             ),
           ),
-          Padding(
+          /*  Padding(
             padding: const EdgeInsets.only(right: 8.0),
-            child: Container(
-              height: 13,
-              width: 330,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: Colors.amber),
+            child: */
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 13,
+                width: 300,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.amber),
+              ),
             ),
-          )
+          ),
+          //)
         ],
       ),
     );
@@ -279,9 +291,7 @@ class _HomepageState extends State<Homepage> {
         child: Align(
             alignment: Alignment.topLeft,
             child: Padding(
-                padding: const EdgeInsets.only(
-                  left: 15.0,
-                ),
+                padding: const EdgeInsets.only(left: 15.0, top: 15.0),
                 child: Text(
                   "(OR)",
                   style: TextStyle(
@@ -298,7 +308,7 @@ class _HomepageState extends State<Homepage> {
         child: Align(
             alignment: Alignment.topLeft,
             child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
+                padding: const EdgeInsets.only(left: 8.0, top: 8.0),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -397,7 +407,7 @@ class _HomepageState extends State<Homepage> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Padding(
-        padding: const EdgeInsets.only(top: 180.0),
+        padding: const EdgeInsets.only(top: 60.0),
         child: SizedBox(
           width: 375,
           height: 50,
